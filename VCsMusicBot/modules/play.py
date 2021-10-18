@@ -176,9 +176,9 @@ def r_ply(type_):
                 InlineKeyboardButton("⏭", "skip"),
             ],
             [
-                InlineKeyboardButton("Playlist 📖", "playlist"),
+                InlineKeyboardButton("", "playlist"),
             ],
-            [InlineKeyboardButton("❌ Close", "cls")],
+            [InlineKeyboardButton("حذف الكليشه 📊", "cls")],
         ]
     )
     return mar
@@ -193,7 +193,7 @@ async def ee(client, message):
     if stats:
         await message.reply(stats)
     else:
-        await message.reply("No VC instances running in this chat")
+        await message.reply("لا توجد موسيقى VC قيد التشغيل في هذه الدردشة")
 
 
 @Client.on_message(filters.command("player") & filters.group & ~filters.edited)
@@ -214,7 +214,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("No VC instances running in this chat")
+        await message.reply("لا توجد موسيقى VC قيد التشغيل في هذه الدردشة")
 
 
 @Client.on_message(
@@ -237,22 +237,22 @@ async def hfmm(_, message):
     if status == "ON" or status == "on" or status == "On":
         lel = await message.reply("`Processing...`")
         if not message.chat.id in DISABLED_GROUPS:
-            await lel.edit("Music Player Already Activated In This Chat")
+            await lel.edit("تم تنشيط مشغل الموسيقى بالفعل في هذه الدردشة")
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"Music Player Successfully Enabled For Users In The Chat {message.chat.id}"
+            f"تم تمكين مشغل الموسيقى بنجاح للمستخدمين في الدردشة {message.chat.id}"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
         lel = await message.reply("`Processing...`")
         
         if message.chat.id in DISABLED_GROUPS:
-            await lel.edit("Music Player Already turned off In This Chat")
+            await lel.edit("تم إيقاف تشغيل مشغل الموسيقى بالفعل في هذه الدردشة")
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"Music Player Successfully Deactivated For Users In The Chat {message.chat.id}"
+            f"تم إيقاف تشغيل مشغل الموسيقى بالفعل في هذه الدردشة {message.chat.id}"
         )
     else:
         await message.reply_text(
@@ -315,7 +315,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.active_chats) or (
             callsmusic.active_chats[chet_id] == "paused"
         ):
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("اﺎݪدࢪدشـشهـه غي٘ࢪ مـمتصصݪهـه⚠️", show_alert=True)
         else:
             callsmusic.pause(chet_id)
             await cb.answer("Music Paused!")
@@ -327,7 +327,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.active_chats) or (
             callsmusic.active_chats[chet_id] == "playing"
         ):
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("اﺎݪدࢪدشـشهـه غي٘ࢪ مـمتصصݪهـه⚠️", show_alert=True)
         else:
             callsmusic.resume(chet_id)
             await cb.answer("Music Resumed!")
@@ -362,7 +362,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.active_chats) or (
             callsmusic.active_chats[chet_id] == "playing"
         ):
-            await cb.answer("Chat is not connected or already playng", show_alert=True)
+            await cb.answer("الدردشة ليست متصلة أو قيد التشغيل بالفعل💕", show_alert=True)
         else:
             callsmusic.resume(chet_id)
             await cb.answer("Music Resumed!")
@@ -370,7 +370,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.active_chats) or (
             callsmusic.active_chats[chet_id] == "paused"
         ):
-            await cb.answer("Chat is not connected or already paused", show_alert=True)
+            await cb.answer("الدردشة ليست متصلة أو متوقفة مؤقتًا بالفعل⚠️", show_alert=True)
         else:
             callsmusic.pause(chet_id)
             await cb.answer("Music Paused!")
@@ -390,9 +390,9 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("⏭", "skip"),
                 ],
                 [
-                    InlineKeyboardButton("Playlist 📖", "playlist"),
+                    InlineKeyboardButton("", "playlist"),
                 ],
-                [InlineKeyboardButton("❌ Close", "cls")],
+                [InlineKeyboardButton("ححذف اﺎݪڪݪي٘شـشهـه 🔱", "cls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -400,7 +400,7 @@ async def m_cb(b, cb):
         if qeue:
             qeue.pop(0)
         if chet_id not in callsmusic.active_chats:
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("اﺎݪدࢪدشـشهـه غي٘ࢪ مـمتصصݪهـه⚠️", show_alert=True)
         else:
             queues.task_done(chet_id)
             if queues.is_empty(chet_id):
@@ -426,7 +426,7 @@ async def m_cb(b, cb):
             await callsmusic.stop(chet_id)
             await cb.message.edit("Successfully Left the Chat!")
         else:
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("اﺎݪدࢪدشـشهـه غي٘ࢪ مـمتصصݪهـه⚠️", show_alert=True)
 
 
 @Client.on_message(command("play") & other_filters)
@@ -981,7 +981,7 @@ async def deezer(client: Client, message_: Message):
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
             [InlineKeyboardButton(text="Listen On Deezer 🎬", url=f"{url}")],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="ححذف اﺎݪقاﺎئمـمهـه 💕", callback_data="cls")],
         ]
     )
     file_path = await convert(wget.download(url))
@@ -999,7 +999,7 @@ async def deezer(client: Client, message_: Message):
         qeue.append(appendable)
         await res.edit_text(f"✯{bn}✯= #️⃣ Queued at position {position}")
     else:
-        await res.edit_text(f"✯{bn}✯=▶️ Playing.....")
+        await res.edit_text(f"✯{bn}✯=▶️ اﺎنتظࢪ.....")
 
         que[chat_id] = []
         qeue = que.get(chat_id)
@@ -1011,7 +1011,7 @@ async def deezer(client: Client, message_: Message):
         try:
             await callsmusic.set_stream(chat_id, file_path)
         except:
-            res.edit("Group call is not connected of I can't join it")
+            res.edit("المكالمة الجماعية غير متصلة لأنني لا أستطيع الانضمام إليها 💜")
             return
 
     await res.delete()
@@ -1047,7 +1047,7 @@ async def jiosaavn(client: Client, message_: Message):
             if administrator == message_.from_user.id:
                 if message_.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>أضفني كمسؤول عن مجموعتك أولاً</b>",
                     )
                     pass
                 try:
@@ -1061,7 +1061,7 @@ async def jiosaavn(client: Client, message_: Message):
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message_.chat.id, "I joined this group for playing music in VC"
+                        message_.chat.id, "اﺎناﺎ اﺎݪححسساﺎب اﺎݪمـمسساﺎعٓد اﺎݪطفاﺎ قمـم بࢪفعٓي٘💕"
                     )
                     await lel.edit(
                         "<b>helper userbot joined your chat</b>",
@@ -1072,8 +1072,8 @@ async def jiosaavn(client: Client, message_: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @VCsMusicPlayer to your Group and try again</b>",
+                        f"<b> 🔴 خطأ في انتظار الفيضان 🔴 \ n لم يتمكن المستخدم {user.first_name} من الانضمام إلى مجموعتك بسبب كثرة الطلبات على userbot!  تأكد من عدم حظر المستخدم في المجموعة ".
+                         "\ n \ n أو أضف @VCsMusicPlayer يدويًا إلى مجموعتك وحاول مرة أخرى </ b>" ،
                     )
     try:
         await USER.get_chat(chid)
@@ -1113,15 +1113,15 @@ async def jiosaavn(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
+                InlineKeyboardButton("قاﺎئمـمهـه اﺎݪتشـشغي٘ݪ 💕", callback_data="playlist"),
+                InlineKeyboardButton("اﺎݪقاﺎئمـمهـه 🥢 ", callback_data="menu"),
             ],
             [
                 InlineKeyboardButton(
                     text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
                 )
             ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="ححذف اﺎݪڪݪي٘شـشهـه 💕", callback_data="cls")],
         ]
     )
     file_path = await convert(wget.download(slink))
@@ -1139,11 +1139,11 @@ async def jiosaavn(client: Client, message_: Message):
             chat_id=message_.chat.id,
             reply_markup=keyboard,
             photo="final.png",
-            caption=f"✯{bn}✯=#️⃣ Queued at position {position}",
+            caption=f"✯{bn}✯في٘ قناﺎئمـمةـة اﺎݪاﺎنتظاﺎࢪ {position}",
         )
 
     else:
-        await res.edit_text(f"{bn}=▶️ Playing.....")
+        await res.edit_text(f"{bn}=▶️ اﺎنتظࢪ....")
         que[chat_id] = []
         qeue = que.get(chat_id)
         s_name = sname
@@ -1154,7 +1154,7 @@ async def jiosaavn(client: Client, message_: Message):
         try:
             await callsmusic.set_stream(chat_id, file_path)
         except:
-            res.edit("Group call is not connected of I can't join it")
+            res.edit("عٓمـمࢪي٘ اﺎݪمـمڪاﺎݪمـمهـه غي٘ࢪ مـمتصصݪهـه اﺎݪاﺎصصتطي٘عٓ اﺎݪنظمـماﺎمـم 💕")
             return
     await res.edit("Generating Thumbnail.")
     await generate_cover(requested_by, sname, ssingers, sduration, sthumb)
@@ -1183,9 +1183,9 @@ async def lol_cb(b, cb):
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
-        await cb.answer("You ain't the person who requested to play the song!", show_alert=True)
+        await cb.answer("أاﺎنت اﺎݪسست اﺎݪذي٘ طݪب اﺎݪاﺎغني٘هـه 😒!", show_alert=True)
         return
-    await cb.message.edit("Hang On... Player Starting")
+    await cb.message.edit("اﺎنتظࢪ قݪي٘ݪاﺎ 💛")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -1206,7 +1206,7 @@ async def lol_cb(b, cb):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await cb.message.edit(f"Music longer than {DURATION_LIMIT}min are not allowed to play")
+             await cb.message.edit(f"غير مسموح بتشغيل الموسيقى التي تزيد مدتها عن {DURATION_LIMIT} دقيقة 💟")
              return
     except:
         pass
@@ -1222,14 +1222,14 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
+                InlineKeyboardButton("قاﺎئمـمهـه اﺎݪتشـشغي٘ݪ 💕", callback_data="playlist"),
+                InlineKeyboardButton("اﺎݪقاﺎئمـمهـه 💕 ", callback_data="menu"),
             ],
             [
-                InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                InlineKeyboardButton(text="بححث 💕", url=f"{url}"),
+                InlineKeyboardButton(text="تنززي٘ݪ📥", url=f"{dlurl}"),
             ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="ححذف اﺎݪڪݪي٘شـشهـه 💕", callback_data="cls")],
         ]
     )
     requested_by = useer_name
@@ -1249,7 +1249,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption=f"#⃣  Song requested by {r_by.mention} <b>queued</b> at position {position}!",
+            caption=f"💕الأغنية مطلوبة بواسطة {r_by.mention} <b> في قائمة الانتظار </ b> في الموضع💓 {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1271,7 +1271,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention} via YouTube Music",
+            caption=f"▶ ️ <b> تشغيل </ b> هنا الأغنية التي طلبها {r_by.mention} عبر YouTube Music",
         )
         
         os.remove("final.png")
