@@ -3,38 +3,38 @@
   "logo": "https://telegra.ph/file/5a24274c6a6455f9a8d8f.png",
   "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
   "keywords": ["music", "voicechat", "telegram"],
-  "repository": "https://github.com/LushaiMusic/VCsMusicBot",
+  "repository": "https://github.com/MUSKREXSTEAM/VCsMusicBot",
   "stack": "container",
   "env": {
     "SESSION_NAME": {
-      "description": "Pyrogram session string",
+      "description": "كود الجلسه",
       "required": true
     },
     "BOT_TOKEN": {
-      "description": "A bot token from @BotFather",
+      "description": "توكن البوت",
       "required": true
     },
     "BOT_USERNAME": {
-      "description": "Your bot's username without @",
+      "description": "يوزر البوت من دون @",
       "required": true
     },
     "BOT_NAME": {
-      "description": "Your MusicPlayer Bot Name.",
+      "description": "اسم بوتك",
       "required": false,
       "value": ""
     },
     "SUPPORT_GROUP": {
-      "description": "Your MusicPlayer support group without @ [Leave this if you don't have one]",
+      "description": "قناة البوت",
       "required": false,
       "value": "tgVCSets"
     },
     "PROJECT_NAME": {
-      "description": "Your MusicPlayer project Name.",
+      "description": "اسم بوتك.",
       "required": false,
       "value": "VCsMusicBot"
     },
     "ASSISTANT_NAME": {
-      "description": "Your MusicPlayer's assistant Username without @.",
+      "description": "اسم المساعد من دون @.",
       "required": true
     },
     "ARQ_API_KEY": {
@@ -43,34 +43,34 @@
       "value": "GUGFNB-XPUZDX-XGCKTJ-UZXHBZ-ARQ"
     },    
     "BG_IMAGE": {
-      "description": "BG image of bot (Use transparent one) [IGNORE].",
+      "description": "خلفيه البوت",
       "required": false,
       "value": "https://telegra.ph/file/cf19dda907391656338eb.png"
     },     
     "UPDATES_CHANNEL": {
-      "description": "Updates Channel without @ [Leave this if you don't have one].",
+      "description": "قناة السورس تركه كماهيه.",
       "required": false,
-      "value": "ZauteKm"
+      "value": "qqoqqd"
     },    
     "API_ID": {
-      "description": "App ID from my.telegram.org/apps",
+      "description": "ايبي ايدي خاص بحساب مساعد",
       "required": true
     },
     "PMPERMIT": {
-      "description": "Change to turn off",
+      "description": "تركه حب",
       "required": false,
       "value": "ENABLE"
     },    
     "API_HASH": {
-      "description": "App hash from my.telegram.org/apps",
+      "description": "App هلش",
       "required": true
     },
     "SUDO_USERS": {
-      "description": "List of user IDs counted as admin everywhere (separated by space).",
+      "description": "معرف المطور مع @",
       "required": true
     },
     "DURATION_LIMIT": {
-      "description": "Max audio duration limit for downloads (minutes).",
+      "description": "الحد الاقصى التحميل بلدقايق .",
       "required": true,
       "value": "10"
     }
